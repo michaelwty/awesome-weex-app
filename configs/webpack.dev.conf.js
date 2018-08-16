@@ -18,6 +18,8 @@ const config = require('./config');
 const utils = require('./utils');
 const helper = require('./helper');
 
+var opn = require('opn')
+
 /**
  * Modify the url that will open on the browser.
  * @param {Array} entry 
@@ -183,7 +185,7 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
-
+      opn(`${ip}:${port}`);
       resolve(devWebpackConfig)
     }
   })
